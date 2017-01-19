@@ -1,0 +1,16 @@
+#!/bin/sh
+DONEPATH=~/Done
+PRJDIR=~/Mapswizard
+FILENAME=mapswizard
+
+ARCHIVER=bzip2
+KEYS=-z9
+
+PAKFILENAME=$DONEPATH/$FILENAME.tar.bz2
+
+if [ -e $PAKFILENAME ] ; then \
+   rm $PAKFILENAME;
+fi
+
+tar -c $PRJDIR > $DONEPATH/$FILENAME.tar
+$ARCHIVER $KEYS $DONEPATH/$FILENAME.tar
